@@ -1,0 +1,21 @@
+body {
+  padding: 200px;
+  background-color: aqua;
+  color: white;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+p {
+  font-size: 14px;
+}
+
+.weather-icon {
+  font-size: 40px;
+}
+
