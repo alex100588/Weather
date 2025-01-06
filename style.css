@@ -10,10 +10,68 @@ body {
   flex-direction: column;
 }
 
+input {
+  width: 66vw;
+  height: 2.2rem;
+  border-radius: 0.5rem;
+}
 p {
   font-size: 14px;
 }
 
 .weather-icon {
   font-size: 40px;
+}
+
+.winter {
+  background: url("images/trees-4830285_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: 900;
+  color: black;
+  letter-spacing: 1.2px;
+}
+
+.summer {
+  background: url("images/butterfly-8175198_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 1.2px;
+}
+
+.autumn {
+  background: url("images/town-7590138_1280.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    height: 100vh;
+  }
+
+  .container {
+    height: 55vh;
+  }
+  p {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  body {
+    height: 100vh;
+  }
+  .container {
+    height: 42vh;
+  }
+  p {
+    display: inline-block;
+    width: 77vw;
+    text-align: center;
+    font-size: 18px;
+  }
 }

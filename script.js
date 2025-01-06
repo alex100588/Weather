@@ -6,7 +6,6 @@ const date = document.querySelector(".date");
 const tempFeel = document.querySelector(".temp-feel");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
-console.log(cityInput.value);
 const body = document.querySelector("body");
 
 cityInput.addEventListener("change", (e) => {
@@ -15,7 +14,9 @@ cityInput.addEventListener("change", (e) => {
 });
 
 window.addEventListener("load", () => {
+  if (!cityInput.value) cityInput.value = "Bacau";
   getWeather(cityInput.value);
+  cityInput.innerHTML = "";
 });
 
 async function getWeather(city) {
@@ -41,6 +42,7 @@ async function getWeather(city) {
 const updateUiInfo = (info) => {
   city.innerHTML = cityInput.value;
   temperature.innerHTML = info.temp;
+  cityInput.value = "";
 
   if (info.temp > 20) {
     icon.classList.remove(
@@ -49,7 +51,7 @@ const updateUiInfo = (info) => {
       ".bi-snow"
     );
     icon.classList.add("bi-brightness-high-fill");
-    body.style.background = "url(images/summer.jpg)";
+    body.classList.add("summer");
   } else if (info.temp < 10) {
     icon.classList.remove(
       "bi-brightness-high-fill",
@@ -57,7 +59,8 @@ const updateUiInfo = (info) => {
       ".bi-snow"
     );
     icon.classList.add("bi-snow2");
-    body.style.background = "url(images/winter.jpg)";
+    // body.style.background = "url(images/winter.jpg)";
+    body.classList.add("winter");
   } else {
     icon.classList.remove(
       "bi-brightness-high-fill",
@@ -65,7 +68,7 @@ const updateUiInfo = (info) => {
       ".bi-snow"
     );
     icon.classList.add("bi-brightness-alt-low-fill");
-    body.style.background = "url(images/autumn.jpg)";
+    body.classList.add("autumn");
   }
   date.innerHTML = new Date().toDateString();
   tempFeel.innerHTML = info.feels_like;
