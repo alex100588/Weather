@@ -1,6 +1,5 @@
 body {
   padding: 200px;
-  background-color: aqua;
   color: white;
 }
 
@@ -18,4 +17,3 @@ p {
 .weather-icon {
   font-size: 40px;
 }
-

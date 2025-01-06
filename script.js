@@ -7,11 +7,11 @@ const tempFeel = document.querySelector(".temp-feel");
 const wind = document.querySelector(".wind");
 const humidity = document.querySelector(".humidity");
 console.log(cityInput.value);
-
+const body = document.querySelector("body");
 
 cityInput.addEventListener("change", (e) => {
   const value = e.target.value;
-  getWeather(value)
+  getWeather(value);
 });
 
 window.addEventListener("load", () => {
@@ -31,29 +31,44 @@ async function getWeather(city) {
     );
 
     const data = await response.json();
-    
-    updateUiInfo(data)
+
+    updateUiInfo(data);
   } catch (error) {
     console.log(error);
   }
 }
 
-const updateUiInfo = (info)=>{
-    city.innerHTML = cityInput.value
-    temperature.innerHTML = info.temp
-    
-    if(info.temp > 20){
-        icon.classList.remove("bi-brightness-high-fill", ".bi-brightness-alt-low-fill", ".bi-snow")
-        icon.classList.add("bi-brightness-high-fill")
-    }else if(info.temp < 10){
-        icon.classList.remove("bi-brightness-high-fill", ".bi-brightness-alt-low-fill", ".bi-snow")
-        icon.classList.add("bi-snow2")
-    }else {
-        icon.classList.remove("bi-brightness-high-fill", ".bi-brightness-alt-low-fill", ".bi-snow")
-        icon.classList.add("bi-brightness-alt-low-fill")
-    }
-    date.innerHTML = new Date().toDateString()
-    tempFeel.innerHTML = info.feels_like
-    wind.innerHTML = info.wind_speed
-    humidity.innerHTML = info.humidity
-}
+const updateUiInfo = (info) => {
+  city.innerHTML = cityInput.value;
+  temperature.innerHTML = info.temp;
+
+  if (info.temp > 20) {
+    icon.classList.remove(
+      "bi-brightness-high-fill",
+      ".bi-brightness-alt-low-fill",
+      ".bi-snow"
+    );
+    icon.classList.add("bi-brightness-high-fill");
+    body.style.background = "url(images/summer.jpg)";
+  } else if (info.temp < 10) {
+    icon.classList.remove(
+      "bi-brightness-high-fill",
+      ".bi-brightness-alt-low-fill",
+      ".bi-snow"
+    );
+    icon.classList.add("bi-snow2");
+    body.style.background = "url(images/winter.jpg)";
+  } else {
+    icon.classList.remove(
+      "bi-brightness-high-fill",
+      ".bi-brightness-alt-low-fill",
+      ".bi-snow"
+    );
+    icon.classList.add("bi-brightness-alt-low-fill");
+    body.style.background = "url(images/autumn.jpg)";
+  }
+  date.innerHTML = new Date().toDateString();
+  tempFeel.innerHTML = info.feels_like;
+  wind.innerHTML = info.wind_speed;
+  humidity.innerHTML = info.humidity;
+};
