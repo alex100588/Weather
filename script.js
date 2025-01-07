@@ -1,4 +1,4 @@
-const cityInput = document.querySelector(".city-input");
+FCconst cityInput = document.querySelector(".city-input");
 const city = document.querySelector(".city");
 const temperature = document.querySelector(".temperature");
 const icon = document.querySelector(".weather-icon");
@@ -26,7 +26,7 @@ async function getWeather(city) {
       {
         method: "GET",
         headers: {
-          "X-Api-Key": "lUYW1Wu896E7NTbZXKpiHw==H5x1D9Z79nme4g2l",
+          "X-Api-Key": ,
         },
       }
     );
