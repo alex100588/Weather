@@ -26,7 +26,7 @@ async function getWeather(city) {
       {
         method: "GET",
         headers: {
-          ,
+          "X-Api-Key": "lUYW1Wu896E7NTbZXKpiHw==H5x1D9Z79nme4g2l",
         },
       }
     );
@@ -38,6 +38,15 @@ async function getWeather(city) {
     console.log(error);
   }
 }
+
+// const updateIcons = (add, remove)=>{
+//   add = icon.classList.add("bi-brightness-high-fill")
+//   remove = icon.classList.remove(
+//     "bi-brightness-high-fill",
+//     ".bi-brightness-alt-low-fill",
+//     ".bi-snow"
+//   );
+// }
 
 const updateUiInfo = (info) => {
   city.innerHTML = cityInput.value;
@@ -59,13 +68,12 @@ const updateUiInfo = (info) => {
       ".bi-snow"
     );
     icon.classList.add("bi-snow2");
-    // body.style.background = "url(images/winter.jpg)";
     body.classList.add("winter");
   } else {
     icon.classList.remove(
       "bi-brightness-high-fill",
       ".bi-brightness-alt-low-fill",
-      ".bi-snow"
+      "bi-snow2"
     );
     icon.classList.add("bi-brightness-alt-low-fill");
     body.classList.add("autumn");
