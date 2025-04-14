@@ -26,9 +26,10 @@ async function getWeather(city) {
       {
         method: "GET",
         headers: {
-          "X-Api-Key": "lUYW1Wu896E7NTbZXKpiHw==H5x1D9Z79nme4g2l",
+          "X-Api-Key": "nVH0j5pHmmZSdOrMF8DTAeKWKfyi8kR2P363FRWg",
         },
       }
+      
     );
 
     const data = await response.json();
@@ -49,6 +50,8 @@ async function getWeather(city) {
 // }
 
 const updateUiInfo = (info) => {
+  console.log(info);
+  
   city.innerHTML = cityInput.value;
   temperature.innerHTML = info.temp;
   cityInput.value = "";
